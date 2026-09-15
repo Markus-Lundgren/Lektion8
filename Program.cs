@@ -18,3 +18,14 @@ class Book
 	}
 
 }
+
+class Dog
+{
+	public string name;
+	public int age;
+
+	public void Introduce()
+	{
+		Console.WriteLine($"Jag heter {name} och är {age} år.");
+	}
+}
