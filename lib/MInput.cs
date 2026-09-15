@@ -29,4 +29,18 @@ static class MInput
 			return num;
 		}
 	}
+
+	public static string CheckInput(string input, string message = "Skriv in ett giltigt input: ")
+	{
+		while (true)
+		{
+			if (string.IsNullOrWhiteSpace(input))
+			{
+				Console.Write(message);
+				input = Console.ReadLine()!;
+				continue;
+			}
+			return input;
+		}
+	}
 }
