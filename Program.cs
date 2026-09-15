@@ -4,6 +4,12 @@
 	{
 		Book book1 = new Book("Dune", "Frank Herbert");
 		Book book2 = new Book("Frankenstein", "Mary Shelly");
+
+		Dog dog1 = new Dog("Bosse", 4);
+		Dog dog2 = new Dog("Molly", 7);
+
+		dog1.Introduce();
+		dog2.Introduce();
 	}
 }
 
@@ -23,6 +29,11 @@ class Dog
 {
 	public string name;
 	public int age;
+
+	public Dog(string name, int age)
+	{
+
+	}
 
 	public void Introduce()
 	{
