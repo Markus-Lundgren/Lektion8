@@ -43,4 +43,18 @@ static class MInput
 			return input;
 		}
 	}
+
+	public static int CheckInputInt(string input, string message = "Skriv in ett giltigt input: ")
+	{
+		while (true)
+		{
+			if (!int.TryParse(input, out int num))
+			{
+				Console.Write(message);
+				input = Console.ReadLine()!;
+				continue;
+			}
+			return num;
+		}
+	}
 }
