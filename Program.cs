@@ -78,4 +78,31 @@ class Car
 			return;
 		}
 	}
+
+	class BankAccount
+	{
+		public string owner;
+		private int balance;
+
+		public BankAccount(string owner, int balance)
+		{
+			this.owner = MInput.CheckInput(owner);
+			this.balance = balance;
+		}
+
+		public void Deposit(int amount)
+		{
+			if (balance < 0)
+			{
+				Console.WriteLine("Kan ej sätta in negativa belopp!");
+				amount = 0;
+			}
+			balance += amount;
+		}
+
+		public int GetBalance()
+		{
+			return balance;
+		}
+	}
 }
