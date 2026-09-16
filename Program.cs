@@ -5,6 +5,12 @@
 		Book book1 = new("Dune", "Frank Herbert");
 		Book book2 = new("Frankenstein", "Mary Shelly");
 
+		string author = Console.ReadLine();
+		string name = Console.ReadLine();
+
+		Book book3 = new(name, author);
+
+
 		Dog dog1 = new("Bosse", 4);
 		Dog dog2 = new("Molly", 7);
 
@@ -32,6 +38,11 @@ class Book
 	{
 		this.title = MInput.CheckInput(title);
 		this.author = MInput.CheckInput(author);
+	}
+
+	public string GetAuthor()
+	{
+		return author;
 	}
 
 }
