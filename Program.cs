@@ -2,11 +2,11 @@
 {
 	static void Main()
 	{
-		Book book1 = new Book("Dune", "Frank Herbert");
-		Book book2 = new Book("Frankenstein", "Mary Shelly");
+		Book book1 = new("Dune", "Frank Herbert");
+		Book book2 = new("Frankenstein", "Mary Shelly");
 
-		Dog dog1 = new Dog("Bosse", 4);
-		Dog dog2 = new Dog("Molly", 7);
+		Dog dog1 = new("Bosse", 4);
+		Dog dog2 = new("Molly", 7);
 
 		dog1.Introduce();
 		dog2.Introduce();
