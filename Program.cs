@@ -18,102 +18,73 @@
 		dog2.Introduce();
 
 		Car car = new Car("Volvo", 0);
-		Console.WriteLine($"{car.brand} kör i {car.speed} km/h");
+		Console.WriteLine($"{car.Brand} kör i {car.Speed} km/h");
 		car.Accelerate();
 		car.Accelerate();
-		Console.WriteLine($"{car.brand} kör i {car.speed} km/h");
+		Console.WriteLine($"{car.Brand} kör i {car.Speed} km/h");
 		car.Brake();
 		car.Brake();
-		Console.WriteLine($"{car.brand} kör i {car.speed} km/h");
+		Console.WriteLine($"{car.Brand} kör i {car.Speed} km/h");
 		car.Brake();
-		Console.WriteLine($"{car.brand} kör i {car.speed} km/h");
+		Console.WriteLine($"{car.Brand} kör i {car.Speed} km/h");
 	}
 }
 
 class Book
 {
-	private string title;
-	private string author;
-	public Book(string title, string author)
-	{
-		this.title = MInput.CheckInput(title);
-		this.author = MInput.CheckInput(author);
-	}
-
-	public string GetAuthor()
-	{
-		return author;
-	}
-
+	private string _title;
+	private string _author;
+	public Book(string title, string author) => (_title, _author) = (MInput.CheckInput(title), MInput.CheckInput(author));
+	public string Author => _author;
 }
 
 class Dog
 {
-	public string name;
-	public int age;
+	public string Name;
+	public int Age;
 
-	public Dog(string name, int age)
-	{
-		this.name = MInput.CheckInput(name);
-		this.age = age;
-	}
+	public Dog(string name, int age) => (Name, Age) = (name, age);
 
 	public void Introduce()
 	{
-		Console.WriteLine($"Jag heter {name} och är {age} år.");
+		Console.WriteLine($"Jag heter {Name} och är {Age} år.");
 	}
 }
 
 class Car
 {
-	public string brand;
-	public int speed;
+	public string Brand;
+	public int Speed;
 
-	public Car(string brand, int speed)
-	{
-		this.brand = MInput.CheckInput(brand);
-		this.speed = speed;
-	}
+	public Car(string brand, int speed) => (Brand, Speed) = (brand, speed);
 
-	public void Accelerate()
-	{
-		speed += 10;
-	}
+	public void Accelerate() => Speed += 10;
 
 	public void Brake()
 	{
-		speed -= 10;
-		if (speed <= 0)
+		Speed = (Speed <= 10) ? 0 : Speed - 10;
+		if (Speed == 0)
 		{
-			speed = 0;
 			return;
 		}
 	}
 
 	class BankAccount
 	{
-		public string owner;
-		private int balance;
-
-		public BankAccount(string owner, int balance)
-		{
-			this.owner = MInput.CheckInput(owner);
-			this.balance = balance;
-		}
+		public string Owner;
+		private int _balance;
+		public BankAccount(string owner, int balance) => (Owner, _balance) = (owner, balance);
 
 		public void Deposit(int amount)
 		{
-			if (balance < 0)
+			if (_balance < 0)
 			{
 				Console.WriteLine("Kan ej sätta in negativa belopp!");
 				amount = 0;
 			}
-			balance += amount;
+			_balance += amount;
 		}
 
-		public int GetBalance()
-		{
-			return balance;
-		}
+		public int GetBalance() => _balance;
 	}
 }
